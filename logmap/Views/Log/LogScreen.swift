@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct LogScreen: View{
+    
     var body: some View{
-        NavigationView {
+        
                 ZStack {
                     VStack{
                         PageTitleSection()
@@ -18,7 +19,7 @@ struct LogScreen: View{
                     AddTextbookButton()
                     Spacer()
                 }
-        }
+        
         .modifier(BaseText())
     }
 }
@@ -32,7 +33,6 @@ struct PageTitleSection: View{
                 Spacer()
             }
         }
-
         .padding()
     }
 }
@@ -58,7 +58,11 @@ struct TextbooksSection: View{
                 }
                 LazyVGrid(columns: gridItemLayout, spacing: 20) {
                     ForEach(logVM.textbooks) { textbook in
-                        Text(textbook.title)
+                        NavigationLink {
+                            RecordScreen()
+                        } label: {
+                            Text(textbook.title)
+                        }
                     }
                 }
             }
@@ -78,17 +82,17 @@ struct AddTextbookButton: View{
             HStack{
                 Spacer()
                 Button(action: {
-                    print("Tapped!!") // --- 3
+                    print("Tapped!!")
                 }, label: {
                     Image(systemName: "plus")
                         .foregroundColor(.white)
-                        .font(.system(size: 32)) // --- 4
+                        .font(.system(size: 32))
                 })
                 .frame(width: 60, height: 60)
                 .background(Color.Blue)
                 .cornerRadius(30.0)
                 .shadow(color: .gray, radius: 3, x: 3, y: 3)
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 16.0, trailing: 16.0)) // --- 5
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 16.0, trailing: 16.0))
             }
 
         }
