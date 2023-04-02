@@ -11,6 +11,13 @@
 		CA4FEA6F29D00D73001675FE /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FEA6E29D00D73001675FE /* SignInViewModel.swift */; };
 		CA4FEA7129D00DEA001675FE /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FEA7029D00DEA001675FE /* Size.swift */; };
 		CA4FEA7429D014A4001675FE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CA4FEA7329D014A4001675FE /* FirebaseAuth */; };
+		CA4FEA7929D7C337001675FE /* RecordScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4FEA7829D7C337001675FE /* RecordScreen.swift */; };
+		CA53A44929D813FE00259081 /* ProgressCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53A44829D813FE00259081 /* ProgressCircle.swift */; };
+		CA53A44B29D8238300259081 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53A44A29D8238300259081 /* NavigationBar.swift */; };
+		CA53A44E29D9194300259081 /* ButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53A44D29D9194300259081 /* ButtonModifier.swift */; };
+		CA53A45029D9205700259081 /* StopWatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53A44F29D9205700259081 /* StopWatchView.swift */; };
+		CA53A45229D9208400259081 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53A45129D9208400259081 /* Common.swift */; };
+		CA53A45429D9A7C800259081 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA53A45329D9A7C800259081 /* ContentViewModel.swift */; };
 		CA77D69029CECB8F00F09748 /* logmapApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA77D68F29CECB8F00F09748 /* logmapApp.swift */; };
 		CA77D69229CECB8F00F09748 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA77D69129CECB8F00F09748 /* ContentView.swift */; };
 		CA77D69429CECB9000F09748 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA77D69329CECB9000F09748 /* Assets.xcassets */; };
@@ -19,7 +26,6 @@
 		CA77D6AB29CECB9000F09748 /* logmapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA77D6AA29CECB9000F09748 /* logmapUITests.swift */; };
 		CA77D6AD29CECB9000F09748 /* logmapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA77D6AC29CECB9000F09748 /* logmapUITestsLaunchTests.swift */; };
 		CA77D6BE29CED44000F09748 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA77D6BD29CED44000F09748 /* Counter.swift */; };
-		CA77D6C029CED79B00F09748 /* CounterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA77D6BF29CED79B00F09748 /* CounterViewModel.swift */; };
 		CA77D6C329CEEBA200F09748 /* LogScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA77D6C229CEEBA200F09748 /* LogScreen.swift */; };
 		CA77D6C729CEEBD200F09748 /* ReportScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA77D6C629CEEBD200F09748 /* ReportScreen.swift */; };
 		CA77D6CA29CF002400F09748 /* MypageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA77D6C929CF002400F09748 /* MypageScreen.swift */; };
@@ -53,6 +59,13 @@
 		CA4FEA6E29D00D73001675FE /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		CA4FEA7029D00DEA001675FE /* Size.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 		CA4FEA7529D02103001675FE /* logmap.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = logmap.entitlements; sourceTree = "<group>"; };
+		CA4FEA7829D7C337001675FE /* RecordScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordScreen.swift; sourceTree = "<group>"; };
+		CA53A44829D813FE00259081 /* ProgressCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircle.swift; sourceTree = "<group>"; };
+		CA53A44A29D8238300259081 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		CA53A44D29D9194300259081 /* ButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifier.swift; sourceTree = "<group>"; };
+		CA53A44F29D9205700259081 /* StopWatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchView.swift; sourceTree = "<group>"; };
+		CA53A45129D9208400259081 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		CA53A45329D9A7C800259081 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		CA77D68C29CECB8F00F09748 /* logmap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = logmap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA77D68F29CECB8F00F09748 /* logmapApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logmapApp.swift; sourceTree = "<group>"; };
 		CA77D69129CECB8F00F09748 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -64,7 +77,6 @@
 		CA77D6AA29CECB9000F09748 /* logmapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logmapUITests.swift; sourceTree = "<group>"; };
 		CA77D6AC29CECB9000F09748 /* logmapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = logmapUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		CA77D6BD29CED44000F09748 /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
-		CA77D6BF29CED79B00F09748 /* CounterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewModel.swift; sourceTree = "<group>"; };
 		CA77D6C229CEEBA200F09748 /* LogScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogScreen.swift; sourceTree = "<group>"; };
 		CA77D6C629CEEBD200F09748 /* ReportScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportScreen.swift; sourceTree = "<group>"; };
 		CA77D6C929CF002400F09748 /* MypageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageScreen.swift; sourceTree = "<group>"; };
@@ -123,6 +135,30 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CA4FEA7629D7C2F2001675FE /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				CA4FEA7829D7C337001675FE /* RecordScreen.swift */,
+				CA53A44F29D9205700259081 /* StopWatchView.swift */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		CA53A44729D813F000259081 /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				CA53A44829D813FE00259081 /* ProgressCircle.swift */,
+			);
+			path = Graph;
+			sourceTree = "<group>";
+		};
+		CA53A45529D9A7D200259081 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Log;
 			sourceTree = "<group>";
 		};
 		CA77D68329CECB8F00F09748 = {
@@ -221,9 +257,10 @@
 		CA77D6BC29CED09A00F09748 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				CA53A45529D9A7D200259081 /* Log */,
 				CA4FEA6D29D00D4F001675FE /* Auth */,
-				CA77D6BF29CED79B00F09748 /* CounterViewModel.swift */,
 				CAE36D1529CFDDE700EA151F /* LogViewModel.swift */,
+				CA53A45329D9A7C800259081 /* ContentViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -231,6 +268,7 @@
 		CA77D6C129CEEB4100F09748 /* Log */ = {
 			isa = PBXGroup;
 			children = (
+				CA4FEA7629D7C2F2001675FE /* Record */,
 				CA77D6C229CEEBA200F09748 /* LogScreen.swift */,
 			);
 			path = Log;
@@ -264,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				CA4FEA7029D00DEA001675FE /* Size.swift */,
+				CA53A45129D9208400259081 /* Common.swift */,
 			);
 			path = Const;
 			sourceTree = "<group>";
@@ -271,7 +310,10 @@
 		CA77D6CF29CF2A4B00F09748 /* Modifier */ = {
 			isa = PBXGroup;
 			children = (
+				CA53A44729D813F000259081 /* Graph */,
 				CA77D6D029CF2A6F00F09748 /* TextModifier.swift */,
+				CA53A44A29D8238300259081 /* NavigationBar.swift */,
+				CA53A44D29D9194300259081 /* ButtonModifier.swift */,
 			);
 			path = Modifier;
 			sourceTree = "<group>";
@@ -414,17 +456,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA53A44B29D8238300259081 /* NavigationBar.swift in Sources */,
 				CA77D6C329CEEBA200F09748 /* LogScreen.swift in Sources */,
 				CAE36D1D29CFEBF800EA151F /* Textbook.swift in Sources */,
 				CAE36D1629CFDDE700EA151F /* LogViewModel.swift in Sources */,
 				CA77D6CA29CF002400F09748 /* MypageScreen.swift in Sources */,
 				CA4FEA6F29D00D73001675FE /* SignInViewModel.swift in Sources */,
+				CA4FEA7929D7C337001675FE /* RecordScreen.swift in Sources */,
+				CA53A45029D9205700259081 /* StopWatchView.swift in Sources */,
+				CA53A45229D9208400259081 /* Common.swift in Sources */,
+				CA53A44929D813FE00259081 /* ProgressCircle.swift in Sources */,
 				CA77D69229CECB8F00F09748 /* ContentView.swift in Sources */,
 				CA4FEA6C29D00BFA001675FE /* LoginScreen.swift in Sources */,
-				CA77D6C029CED79B00F09748 /* CounterViewModel.swift in Sources */,
 				CA4FEA7129D00DEA001675FE /* Size.swift in Sources */,
+				CA53A44E29D9194300259081 /* ButtonModifier.swift in Sources */,
 				CA77D6C729CEEBD200F09748 /* ReportScreen.swift in Sources */,
 				CA77D6D129CF2A6F00F09748 /* TextModifier.swift in Sources */,
+				CA53A45429D9A7C800259081 /* ContentViewModel.swift in Sources */,
 				CA77D6CE29CF14EC00F09748 /* Color.swift in Sources */,
 				CA77D69029CECB8F00F09748 /* logmapApp.swift in Sources */,
 				CA77D6BE29CED44000F09748 /* Counter.swift in Sources */,

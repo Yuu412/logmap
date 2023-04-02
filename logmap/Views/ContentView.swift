@@ -9,34 +9,51 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @AppStorage("log_status") var log_Status = false
+    // 本番用
+    //@AppStorage("log_status") var log_Status = false
+    
+    // Dev
+    @AppStorage("log_status") var log_Status = true
+    
+    //@EnvironmentObject var isTabView : Bool
     
     @State private var selection = 2
+    
+    @ObservedObject var contentVM = ContentViewModel()
+    
+    init(){
+        if !contentVM.isTabView {
+            UITabBar.appearance().isHidden = true
+        }
+    }
+    
     var body: some View {
         if self.log_Status {
-            TabView(selection:$selection) {
-                Spacer()
-                ReportScreen()
-                    .tabItem {
-                        Image(systemName: "chart.bar.fill")
-                        //Label("レポート", systemImage: "chart.bar.fill")
-                    }
-                    .tag(1)
-                LogScreen()
-                    .tabItem {
-                        Image("map")
-                        
-                    }
-                    .tag(2)
-                MypageScreen()
-                    .tabItem {
-                        Image(systemName: "person.crop.circle")
-                        //Label("マイページ", systemImage: "person.crop.circle")
-                    }
-                    .tag(3)
-                Spacer()
+            NavigationStack {
+                TabView(selection:$selection) {
+                    Spacer()
+                    ReportScreen()
+                        .tabItem {
+                            Image(systemName: "chart.bar.fill")
+                            //Label("レポート", systemImage: "chart.bar.fill")
+                        }
+                        .tag(1)
+                    LogScreen()
+                        .tabItem {
+                            Image("map")
+                            
+                        }
+                        .tag(2)
+                    MypageScreen()
+                        .tabItem {
+                            Image(systemName: "person.crop.circle")
+                            //Label("マイページ", systemImage: "person.crop.circle")
+                        }
+                        .tag(3)
+                    Spacer()
+                }
+                .environmentObject(contentVM)
             }
-            .padding()
         }
         else {
             // サインイン用ページ

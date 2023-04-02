@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-
-
 struct PageTitle: ViewModifier {
     let uiFont = UIFont(name: "HiraginoSans-W6", size: 24)!
     func body(content: Content) -> some View {
@@ -52,4 +50,36 @@ struct BaseText: ViewModifier {
         }
     }
 }
+
+// タイマー表示時の時間表示部
+struct TimerText: ViewModifier {
+    let color: Color
+    let uiFont = UIFont(name: "HiraginoSans-W3", size: 60)!
+    
+    func body(content: Content) -> some View {
+        HStack{
+            content
+                .font(.custom("HiraginoSans-W3", size: 60))
+                .baselineOffset(-uiFont.descender)
+                .foregroundColor(color)
+        }
+    }
+}
+
+extension View {
+    
+    func sectionTitleModifier() -> some View {
+        modifier(SectionTitle())
+    }
+    
+    func pageTitleModifier() -> some View {
+        modifier(PageTitle())
+    }
+    
+    
+    func timerTextModifier(color: Color) -> some View {
+        modifier(TimerText(color: color))
+    }
+}
+
 
