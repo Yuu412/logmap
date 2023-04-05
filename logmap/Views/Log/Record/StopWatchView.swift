@@ -22,7 +22,6 @@ struct StopWatchView: View{
         dateFormatter.dateFormat = "HH:mm"
         dateFormatter.locale = Locale(identifier: "ja_jp")
     }
-    
     var body: some View{
         VStack {
             ElapsedTimeCircleGraph(

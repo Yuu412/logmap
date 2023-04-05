@@ -13,6 +13,7 @@ struct NavigationBarModifier: ViewModifier {
     let navigationBarTrailing: Bool
     
     @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var navigationVM: NavigationViewModel
     
     @State private var showingAlert = false
     
@@ -71,7 +72,7 @@ struct NavigationBarModifier: ViewModifier {
                                   primaryButton: .cancel(Text("キャンセル")),
                                   secondaryButton: .destructive(
                                     Text("OK"), action: {
-                                        dismiss()
+                                        navigationVM.popToRoot()
                                     })
                             )
                         }

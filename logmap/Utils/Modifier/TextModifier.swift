@@ -24,9 +24,7 @@ struct SectionTitle: ViewModifier {
     let uiFont = UIFont(name: "HiraginoSans-W3", size: 16)!
     func body(content: Content) -> some View {
         HStack{
-            Image("preTitleMark")
-                .resizable()
-                .frame(width: 16, height: 16)
+            Image(systemName: "chevron.right")
             content
                 .font(.custom("HiraginoSans-W6", size: 16))
                 .foregroundColor(Color.Gray)

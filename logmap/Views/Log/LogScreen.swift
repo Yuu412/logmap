@@ -8,17 +8,15 @@
 import SwiftUI
 
 struct LogScreen: View{
-    
     var body: some View{
-        
-                ZStack {
-                    VStack{
-                        PageTitleSection()
-                        TextbooksSection()
-                    }
-                    AddTextbookButton()
-                    Spacer()
-                }
+        ZStack {
+            VStack{
+                PageTitleSection()
+                TextbooksSection()
+            }
+            AddTextbookButton()
+            Spacer()
+        }
         
         .modifier(BaseText())
     }
@@ -39,7 +37,7 @@ struct PageTitleSection: View{
 
 struct TextbooksSection: View{
     @ObservedObject var logVM = LogViewModel()
-    
+    @EnvironmentObject var navigationVM: NavigationViewModel
     // コンテンツ表示のレイアウト指定（4列ずつの配列）
     private var gridItemLayout = [
         GridItem(.flexible()),
@@ -47,6 +45,10 @@ struct TextbooksSection: View{
         GridItem(.flexible()),
         GridItem(.flexible()),
     ]
+    
+    init() {
+        logVM.getData()
+    }
     
     var body: some View{
         ScrollView {
@@ -58,20 +60,24 @@ struct TextbooksSection: View{
                 }
                 LazyVGrid(columns: gridItemLayout, spacing: 20) {
                     ForEach(logVM.textbooks) { textbook in
+                        /*
                         NavigationLink {
-                            RecordScreen()
+                            RecordScreen(navigationPath: navigationPath)
                         } label: {
                             Text(textbook.title)
                         }
+                         */
+                        
+                        NavigationLink(textbook.title, value: NView.second)
+                        
+                        
                     }
+                    
+
                 }
             }
         }
         .padding()
-    }
-    
-    init() {
-        logVM.getData()
     }
 }
 
@@ -94,7 +100,7 @@ struct AddTextbookButton: View{
                 .shadow(color: .gray, radius: 3, x: 3, y: 3)
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 16.0, trailing: 16.0))
             }
-
+            
         }
     }
 }

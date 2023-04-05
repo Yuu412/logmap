@@ -31,6 +31,7 @@
 		CA77D6CA29CF002400F09748 /* MypageScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA77D6C929CF002400F09748 /* MypageScreen.swift */; };
 		CA77D6CE29CF14EC00F09748 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA77D6CD29CF14EC00F09748 /* Color.swift */; };
 		CA77D6D129CF2A6F00F09748 /* TextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA77D6D029CF2A6F00F09748 /* TextModifier.swift */; };
+		CA9E8C6229DC61FC000273BA /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E8C6129DC61FC000273BA /* NavigationViewModel.swift */; };
 		CAE36D1629CFDDE700EA151F /* LogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE36D1529CFDDE700EA151F /* LogViewModel.swift */; };
 		CAE36D1829CFE31200EA151F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CAE36D1729CFE31200EA151F /* GoogleService-Info.plist */; };
 		CAE36D1B29CFE4D100EA151F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CAE36D1A29CFE4D100EA151F /* FirebaseFirestore */; };
@@ -82,6 +83,7 @@
 		CA77D6C929CF002400F09748 /* MypageScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageScreen.swift; sourceTree = "<group>"; };
 		CA77D6CD29CF14EC00F09748 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		CA77D6D029CF2A6F00F09748 /* TextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextModifier.swift; sourceTree = "<group>"; };
+		CA9E8C6129DC61FC000273BA /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
 		CAE36D1529CFDDE700EA151F /* LogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewModel.swift; sourceTree = "<group>"; };
 		CAE36D1729CFE31200EA151F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CAE36D1C29CFEBF800EA151F /* Textbook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Textbook.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				CA4FEA6D29D00D4F001675FE /* Auth */,
 				CAE36D1529CFDDE700EA151F /* LogViewModel.swift */,
 				CA53A45329D9A7C800259081 /* ContentViewModel.swift */,
+				CA9E8C6129DC61FC000273BA /* NavigationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				CA53A44B29D8238300259081 /* NavigationBar.swift in Sources */,
 				CA77D6C329CEEBA200F09748 /* LogScreen.swift in Sources */,
 				CAE36D1D29CFEBF800EA151F /* Textbook.swift in Sources */,
+				CA9E8C6229DC61FC000273BA /* NavigationViewModel.swift in Sources */,
 				CAE36D1629CFDDE700EA151F /* LogViewModel.swift in Sources */,
 				CA77D6CA29CF002400F09748 /* MypageScreen.swift in Sources */,
 				CA4FEA6F29D00D73001675FE /* SignInViewModel.swift in Sources */,
