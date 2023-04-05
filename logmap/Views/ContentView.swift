@@ -7,19 +7,17 @@
 
 import SwiftUI
 
+
 struct ContentView: View {
-    
     // 本番用
     //@AppStorage("log_status") var log_Status = false
     
     // Dev
     @AppStorage("log_status") var log_Status = true
-    
-    //@EnvironmentObject var isTabView : Bool
-    
     @State private var selection = 2
-    
     @ObservedObject var contentVM = ContentViewModel()
+    
+    @StateObject var navigationVM = NavigationViewModel()
     
     init(){
         if !contentVM.isTabView {
@@ -29,7 +27,7 @@ struct ContentView: View {
     
     var body: some View {
         if self.log_Status {
-            NavigationStack {
+            NavigationStack(path: $navigationVM.navigationPath) {
                 TabView(selection:$selection) {
                     Spacer()
                     ReportScreen()
@@ -41,7 +39,6 @@ struct ContentView: View {
                     LogScreen()
                         .tabItem {
                             Image("map")
-                            
                         }
                         .tag(2)
                     MypageScreen()
@@ -53,7 +50,14 @@ struct ContentView: View {
                     Spacer()
                 }
                 .environmentObject(contentVM)
+                .navigationDestination(for: NView.self) { path in
+                    switch path{
+                    case .second: RecordScreen()
+                    case .third: StopWatchView()
+                    }
+                }
             }
+            .environmentObject(navigationVM)
         }
         else {
             // サインイン用ページ

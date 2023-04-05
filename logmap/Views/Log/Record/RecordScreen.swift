@@ -10,6 +10,8 @@ import SwiftUI
 struct RecordScreen: View{
     @State var progressValue: CGFloat = INFINITESIMAL
     
+    @EnvironmentObject var navigationVM: NavigationViewModel
+    
     let dateFormatter = DateFormatter()
     
     init() {
@@ -26,11 +28,9 @@ struct RecordScreen: View{
             
             TimeChangeSection(progressValue: self.$progressValue)
                 .padding(.vertical, FrameSize().height * 0.05)
-            
+ 
             // 計測画面への遷移
-            NavigationLink {
-                StopWatchView()
-            } label: {
+            NavigationLink(value: NView.third){
                 Text("START")
                     .primaryTextButtonModifier()
             }
