@@ -7,12 +7,15 @@
 
 import Foundation
 
-enum NView {
-    case second, third
+enum NavView {
+    // case
+    case recordScreen,    // RecordScreen()
+         stopWatchView,      // StopWatchView()
+         enterLogImageView
 }
 
 class NavigationViewModel: ObservableObject {
-    @Published var navigationPath = [NView]()
+    @Published var navigationPath = [NavView]()
     
     func popToRoot() {
             navigationPath = []

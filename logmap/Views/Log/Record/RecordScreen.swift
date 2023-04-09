@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct RecordScreen: View{
-    @State var progressValue: CGFloat = INFINITESIMAL
-    
     @EnvironmentObject var navigationVM: NavigationViewModel
     
     let dateFormatter = DateFormatter()
@@ -22,15 +20,14 @@ struct RecordScreen: View{
     var body: some View{
         VStack {
             GraphSection(
-                progressValue: self.$progressValue,
                 dateFormatter: self.dateFormatter
             )
             
-            TimeChangeSection(progressValue: self.$progressValue)
+            TimeChangeSection()
                 .padding(.vertical, FrameSize().height * 0.05)
- 
+            
             // 計測画面への遷移
-            NavigationLink(value: NView.third){
+            NavigationLink(value: NavView.stopWatchView){
                 Text("START")
                     .primaryTextButtonModifier()
             }
@@ -44,22 +41,9 @@ struct RecordScreen: View{
 
 // 時間加減部
 struct TimeChangeSection: View{
-    @Binding var progressValue: CGFloat
+    @EnvironmentObject var logVM: LogViewModel
     
-    func min2str(minutes: Double) -> String {
-        var retValue: String
-        var roundedMinutes: Int
-        
-        roundedMinutes = Int((100 * minutes).rounded())
-        
-        if(roundedMinutes == 0){
-            retValue = "00.00"
-        } else {
-            retValue = String(roundedMinutes) + ".00"
-        }
-        
-        return retValue
-    }
+    let minimumUnit: Double = 0.01
     
     var body: some View{
         HStack {
@@ -67,7 +51,10 @@ struct TimeChangeSection: View{
             
             // 目標時間の減算ボタン
             Button(action: {
-                self.progressValue -= 0.1
+                if(logVM.targetTime >= minimumUnit){
+                    logVM.subTargetTime(minimumUnit: minimumUnit)
+                }
+                print(logVM.targetTime)
             }, label: {
                 Image(systemName: "minus")
                     .foregroundColor(.white)
@@ -77,14 +64,17 @@ struct TimeChangeSection: View{
             
             Spacer()
             
-            Text(min2str(minutes: progressValue))
+            Text(TimeFunction().rate2min(
+                value: logVM.targetTime,
+                minimumUnit: minimumUnit
+            ))
                 .timerTextModifier(color: Color.Gray)
             
             Spacer()
             
-            // 目標時間の減算ボタン
+            // 目標時間の加算ボタン
             Button(action: {
-                self.progressValue += 0.1
+                logVM.addTargetTime(minimumUnit: minimumUnit)
             }, label: {
                 Image(systemName: "plus")
                     .foregroundColor(.white)
@@ -100,7 +90,6 @@ struct TimeChangeSection: View{
 
 // 時間表示のための円形プログレスバー表示部
 struct GraphSection: View{
-    @Binding var progressValue: CGFloat
     var dateFormatter: DateFormatter
     
     var body: some View{
@@ -109,7 +98,6 @@ struct GraphSection: View{
                 .fill(Color.Blue)
             
             TimeCircleGraph(
-                progressValue: self.$progressValue,
                 dateFormatter: self.dateFormatter
             )
             .frame(width: FrameSize().width * 0.75)
@@ -120,7 +108,7 @@ struct GraphSection: View{
 
 // プログレスバーのビュー
 struct TimeCircleGraph: View {
-    @Binding var progressValue: CGFloat
+    @EnvironmentObject var logVM: LogViewModel
     var dateFormatter: DateFormatter
     
     @State var nowDate = Date()
@@ -146,18 +134,18 @@ struct TimeCircleGraph: View {
             // プログレスバーを示す円
             Circle()
             // 始点, 終点を指定して円を描画（0.0-1.0の範囲に正規化した値を指定）
-                .trim(from: 0.0, to: min(progressValue, 1.0))
+                .trim(from: 0.0, to: min(logVM.targetTime, 1.0))
             // 線の端の形状・色を指定
                 .stroke(style: StrokeStyle(lineWidth: 5.0, lineCap: .round, lineJoin: .round))
                 .foregroundColor(Color.white)
             // 原点を時計の12時の位置に回転させる
                 .rotationEffect(Angle(degrees: 270))
             // 加減時のアニメーションを設定
-                .animation(.easeInOut(duration: 1.0), value: progressValue)
+                .animation(.easeInOut(duration: 1.0), value: logVM.targetTime)
             
             // プログレスバーの先端の円の背景
             Circle()
-                .trim(from: min(progressValue, 1.0) - INFINITESIMAL , to: min(progressValue, 1.0))
+                .trim(from: min(logVM.targetTime, 1.0) - INFINITESIMAL , to: min(logVM.targetTime, 1.0))
                 .stroke(style: StrokeStyle(
                     lineWidth: 45.0,
                     lineCap: .round,
@@ -166,15 +154,15 @@ struct TimeCircleGraph: View {
                 .foregroundColor(Color.white)
                 .opacity(0.25)
                 .rotationEffect(Angle(degrees: 270))
-                .animation(.easeInOut(duration: 1.0), value: progressValue)
+                .animation(.easeInOut(duration: 1.0), value: logVM.targetTime)
             
             // プログレスバーの先端の円
             Circle()
-                .trim(from: min(progressValue, 1.0) - INFINITESIMAL , to: min(progressValue, 1.0))
+                .trim(from: min(logVM.targetTime, 1.0) - INFINITESIMAL , to: min(logVM.targetTime, 1.0))
                 .stroke(style: StrokeStyle(lineWidth: 30.0, lineCap: .round, lineJoin: .round))
                 .foregroundColor(Color.white)
                 .rotationEffect(Angle(degrees: 270))
-                .animation(.easeInOut(duration: 1.0), value: progressValue)
+                .animation(.easeInOut(duration: 1.0), value: logVM.targetTime)
             
             VStack{
                 Image("青チャート")
@@ -185,7 +173,7 @@ struct TimeCircleGraph: View {
                 
                 // 目標時間が経過した際の時刻
                 Label(dateText.isEmpty ? "\(dateFormatter.string(from: nowDate))" : dateText, systemImage: "flag")
-                    .onChange(of: progressValue){ newValue in
+                    .onChange(of: logVM.targetTime){ newValue in
                         self.nowDate = Date()
                         //現在時刻に目標時間を加算した時刻を計算
                         self.nowDate = nowDate + (60 * 100 * newValue)

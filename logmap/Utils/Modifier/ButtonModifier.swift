@@ -37,6 +37,35 @@ struct PrimaryTextButtonModifier: ViewModifier {
     }
 }
 
+// 背景色: Primary, 内容：Icon, Text, 大きさ：dafault
+struct PrimaryTextButtonWithIconModifier: ViewModifier {
+    var iconName: String
+    var leftIcon: Bool
+    
+    func body(content: Content) -> some View {
+        HStack{
+            if leftIcon {
+                Image(systemName: iconName)
+            }
+            content
+                .foregroundColor(Color.white)
+                .kerning(2)
+                .fontWeight(.medium)
+                
+            if !leftIcon {
+                Image(systemName: iconName)
+            }
+        }
+        .font(.system(size: 20))
+        .foregroundColor(.white)
+        .padding(.horizontal, 34)
+        .padding(.vertical, 12)
+        .background(Color.Blue)
+        .cornerRadius(99)
+        
+    }
+}
+
 // 背景色: Primary, 内容：Text, 大きさ：小
 struct SmallPrimaryTextButtonModifier: ViewModifier {
     func body(content: Content) -> some View {
@@ -62,6 +91,10 @@ extension View {
     
     func primaryTextButtonModifier() -> some View {
         modifier(PrimaryTextButtonModifier())
+    }
+    
+    func primaryTextButtonWithIconModifier(iconName: String, leftIcon: Bool) -> some View {
+        modifier(PrimaryTextButtonWithIconModifier(iconName: iconName, leftIcon: leftIcon))
     }
     
     func smallPrimaryTextButtonModifier() -> some View {
