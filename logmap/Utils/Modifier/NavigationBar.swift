@@ -16,7 +16,7 @@ struct NavigationBarModifier: ViewModifier {
     @EnvironmentObject var navigationVM: NavigationViewModel
     
     @State private var showingAlert = false
-    
+    /*
     init(navigationBarTitle: String, navigationBarLeading: Bool, navigationBarTrailing: Bool) {
         self.navigationBarTitle = navigationBarTitle
         self.navigationBarLeading = navigationBarLeading
@@ -34,6 +34,7 @@ struct NavigationBarModifier: ViewModifier {
         UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
         UINavigationBar.appearance().tintColor = .white
     }
+     */
     
     func body(content: Content) -> some View {
         content
@@ -50,7 +51,7 @@ struct NavigationBarModifier: ViewModifier {
                                     .font(.system(size: 16, weight: .medium))
                                 Text("戻る")
                             }
-                            .foregroundColor(.white)
+                            .foregroundColor(Color.Blue)
                         }
                     }
                 }
@@ -64,7 +65,7 @@ struct NavigationBarModifier: ViewModifier {
                                 Image(systemName: "xmark")
                                     .font(.system(size: 16, weight: .medium))
                             }
-                            .foregroundColor(.white)
+                            .foregroundColor(Color.Gray)
                         }
                         .alert(isPresented: $showingAlert) {
                             Alert(title: Text("確認"),
@@ -132,7 +133,6 @@ extension View {
             navigationBarTrailing: trailing
         ))
     }
-    
     
     // Navigation(背景色あり)
     func reverseNavigationBar(title: String) -> some View {

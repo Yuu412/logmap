@@ -49,6 +49,20 @@ struct BaseText: ViewModifier {
     }
 }
 
+struct PageHeadline: ViewModifier {
+    let color: Color
+    let uiFont = UIFont(name: "HiraginoSans-W6", size: 24)!
+    func body(content: Content) -> some View {
+        content
+            .font(.custom("HiraginoSans-W6", size: 24))
+            .foregroundColor(color)
+            .lineSpacing(16)
+            .kerning(2)
+            .baselineOffset(-uiFont.descender)
+        
+    }
+}
+
 // タイマー表示時の時間表示部
 struct TimerText: ViewModifier {
     let color: Color
@@ -74,6 +88,13 @@ extension View {
         modifier(PageTitle())
     }
     
+    func baseTextModifier() -> some View {
+        modifier(BaseText())
+    }
+    
+    func timerHeadlineModifier(color: Color) -> some View {
+        modifier(PageHeadline(color: color))
+    }
     
     func timerTextModifier(color: Color) -> some View {
         modifier(TimerText(color: color))

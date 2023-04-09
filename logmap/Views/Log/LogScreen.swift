@@ -17,7 +17,6 @@ struct LogScreen: View{
             AddTextbookButton()
             Spacer()
         }
-        
         .modifier(BaseText())
     }
 }
@@ -60,20 +59,8 @@ struct TextbooksSection: View{
                 }
                 LazyVGrid(columns: gridItemLayout, spacing: 20) {
                     ForEach(logVM.textbooks) { textbook in
-                        /*
-                        NavigationLink {
-                            RecordScreen(navigationPath: navigationPath)
-                        } label: {
-                            Text(textbook.title)
-                        }
-                         */
-                        
-                        NavigationLink(textbook.title, value: NView.second)
-                        
-                        
+                        NavigationLink(textbook.title, value: NavView.recordScreen)
                     }
-                    
-
                 }
             }
         }

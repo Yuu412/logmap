@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct ContentView: View {
     // 本番用
     //@AppStorage("log_status") var log_Status = false
@@ -16,6 +15,7 @@ struct ContentView: View {
     @AppStorage("log_status") var log_Status = true
     @State private var selection = 2
     @ObservedObject var contentVM = ContentViewModel()
+    @ObservedObject var logVM = LogViewModel()
     
     @StateObject var navigationVM = NavigationViewModel()
     
@@ -50,10 +50,11 @@ struct ContentView: View {
                     Spacer()
                 }
                 .environmentObject(contentVM)
-                .navigationDestination(for: NView.self) { path in
+                .navigationDestination(for: NavView.self) { path in
                     switch path{
-                    case .second: RecordScreen()
-                    case .third: StopWatchView()
+                    case .recordScreen: RecordScreen().environmentObject(logVM)
+                    case .stopWatchView: StopWatchView().environmentObject(logVM)
+                    case .enterLogImageView: EnterLogImageView().environmentObject(logVM)
                     }
                 }
             }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct Textbook: Identifiable {
     var id: String
     var category: String
