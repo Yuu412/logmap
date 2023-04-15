@@ -20,6 +20,7 @@ struct PageTitle: ViewModifier {
     }
 }
 
+// 「>」が先頭に付くSectionTitle
 struct SectionTitle: ViewModifier {
     let uiFont = UIFont(name: "HiraginoSans-W3", size: 16)!
     func body(content: Content) -> some View {
@@ -36,6 +37,27 @@ struct SectionTitle: ViewModifier {
         }
     }
 }
+
+// 「●」が先頭に付くSectionTitle
+struct SectionTitleWithMark: ViewModifier {
+    let uiFont = UIFont(name: "HiraginoSans-W3", size: 16)!
+    func body(content: Content) -> some View {
+        HStack{
+            Image("preTitleMark")
+                .resizable()
+                .frame(width: 16, height: 16)
+            content
+                .font(.custom("HiraginoSans-W6", size: 16))
+                .foregroundColor(Color.Gray)
+                .lineSpacing(14)
+                .kerning(1)
+                .padding(.top, 3)
+                .baselineOffset(-uiFont.descender)
+            Spacer()
+        }
+    }
+}
+
 
 struct BaseText: ViewModifier {
     let uiFont = UIFont(name: "HiraginoSans-W3", size: 14)!
@@ -78,10 +100,29 @@ struct TimerText: ViewModifier {
     }
 }
 
+// タイマー表示時の時間表示部
+struct TimerSmallText: ViewModifier {
+    let color: Color
+    let uiFont = UIFont(name: "HiraginoSans-W3", size: 48)!
+    
+    func body(content: Content) -> some View {
+        HStack{
+            content
+                .font(.custom("HiraginoSans-W3", size: 48))
+                .baselineOffset(-uiFont.descender)
+                .foregroundColor(color)
+        }
+    }
+}
+
 extension View {
     
     func sectionTitleModifier() -> some View {
         modifier(SectionTitle())
+    }
+    
+    func sectionTitleWithMarkModifier() -> some View {
+        modifier(SectionTitleWithMark())
     }
     
     func pageTitleModifier() -> some View {
@@ -98,6 +139,10 @@ extension View {
     
     func timerTextModifier(color: Color) -> some View {
         modifier(TimerText(color: color))
+    }
+    
+    func timerSmallTextModifier(color: Color) -> some View {
+        modifier(TimerSmallText(color: color))
     }
 }
 

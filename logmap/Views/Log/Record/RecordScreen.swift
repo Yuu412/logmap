@@ -64,7 +64,7 @@ struct TimeChangeSection: View{
             
             Spacer()
             
-            Text(TimeFunction().rate2min(
+            Text(TimeService().rate2min(
                 value: logVM.targetTime,
                 minimumUnit: minimumUnit
             ))

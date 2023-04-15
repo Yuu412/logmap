@@ -55,7 +55,7 @@ struct ElapsedTimeSection: View{
         HStack {
             Spacer()
             
-            Text(TimeFunction().rate2sec(value: logVM.progressTime))
+            Text(TimeService().rate2sec(value: logVM.progressTime))
                 .timerTextModifier(color: Color.Blue)
                 .onAppear{
                     logVM.timerStart()

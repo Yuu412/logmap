@@ -21,6 +21,8 @@ class LogViewModel: ObservableObject {
     
     @Published var mode:stopWatchMode = .start
     
+    @Published var reviewNumber: Double = 0
+    
     var timer = Timer()
     
     func getData() {
