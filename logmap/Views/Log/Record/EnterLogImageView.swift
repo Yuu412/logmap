@@ -10,6 +10,9 @@ import SwiftUI
 struct EnterLogImageView: View{
     @EnvironmentObject var navigationVM: NavigationViewModel
     
+    @State private var capturedImage: UIImage? = nil
+    @State private var isCustomCameraViewPresented = false
+    
     var body: some View{
         VStack {
             Text("問題内容の撮影")
@@ -24,17 +27,27 @@ struct EnterLogImageView: View{
                 .baseTextModifier()
                 .padding(.vertical, FrameSize().height * 0.025)
             
-            
             Spacer()
             
-            // 計測画面への遷移
-            NavigationLink(value: NavView.stopWatchView){
+            Button(action: {
+                isCustomCameraViewPresented.toggle()
+            }, label: {
                 Text("撮影する")
                     .primaryTextButtonWithIconModifier(
                         iconName: "camera.fill",
                         leftIcon: true
                     )
-            }
+            })
+            .sheet(isPresented: $isCustomCameraViewPresented, content: {
+                // 画像が取得できていない時のみカメラを起動する
+                if let unwrapCapturedImage = capturedImage {
+                    CheckIncorrectAnswersView(capturedImage: unwrapCapturedImage)
+                    
+                } else {
+                    CustomCameraView(capturedImage: $capturedImage)
+                }
+            })
+            
             Button("スキップする"){
                 print("skip!!")
             }
@@ -45,8 +58,6 @@ struct EnterLogImageView: View{
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBar(title: "ログ取得", leading: false, trailing: true)
-        //.reverseNavigationBar(title: "目標時間の設定")
-        
     }
 }
 

@@ -13,12 +13,26 @@ struct PrimaryIconButtonModifier: ViewModifier {
         content
             .frame(width: 50, height: 50)
             .background(Color.Blue)
-            .cornerRadius(30.0)
+            .cornerRadius(99)
             .shadow(color: .gray, radius: 3, x: 3, y: 3)
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 16.0, trailing: 16.0))
 
     }
 }
+
+// 背景色: Primary, 内容：Icon
+struct PrimarySmallIconButtonModifier: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .frame(width: 40, height: 40)
+            .background(Color.Blue)
+            .cornerRadius(99)
+            .shadow(color: .gray, radius: 3, x: 3, y: 3)
+            .padding(EdgeInsets(top: 0, leading: 0, bottom: 16.0, trailing: 16.0))
+        
+    }
+}
+
 
 // 背景色: Primary, 内容：Text, 大きさ：dafault
 struct PrimaryTextButtonModifier: ViewModifier {
@@ -87,6 +101,10 @@ struct SmallPrimaryTextButtonModifier: ViewModifier {
 extension View {
     func primaryIconButtonModifier() -> some View {
         modifier(PrimaryIconButtonModifier())
+    }
+    
+    func primarySmallIconButtonModifier() -> some View {
+        modifier(PrimarySmallIconButtonModifier())
     }
     
     func primaryTextButtonModifier() -> some View {
