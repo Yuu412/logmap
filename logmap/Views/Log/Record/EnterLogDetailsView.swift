@@ -26,24 +26,19 @@ struct EnterLogDetailsView: View {
             
             Spacer()
             
-            Button(action: {
-                
-            }, label: {
+            NavigationLink(destination: InputCompletedView()) {
                 Text("入力完了")
                     .primaryTextButtonWithIconModifier(
                         iconName: "square.and.pencil",
                         leftIcon: true
                     )
-            })
+            }
             
-            Button(action: {
-                
-            }, label: {
+            NavigationLink(destination: InputCompletedView()) {
                 Text("スキップする")
                     .foregroundColor(Color.Blue)
                     .font(.callout)
-            })
-            
+            }
         }
         .navigationBar(title: "ログの詳細情報", leading: true, trailing: true)
         .padding(.horizontal, horizontalPadding)

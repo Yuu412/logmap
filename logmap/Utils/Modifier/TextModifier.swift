@@ -58,6 +58,17 @@ struct SectionTitleWithMark: ViewModifier {
     }
 }
 
+struct SubheadlineText: ViewModifier {
+    let uiFont = UIFont(name: "HiraginoSans-W3", size: 18)!
+    func body(content: Content) -> some View {
+        HStack{
+            content
+                .font(.custom("HiraginoSans-W3", size: 18))
+                .lineSpacing(10)
+                .baselineOffset(-uiFont.descender)
+        }
+    }
+}
 
 struct BaseText: ViewModifier {
     let uiFont = UIFont(name: "HiraginoSans-W3", size: 14)!
@@ -127,6 +138,10 @@ extension View {
     
     func pageTitleModifier() -> some View {
         modifier(PageTitle())
+    }
+    
+    func subheadlineTextModifier() -> some View {
+        modifier(SubheadlineText())
     }
     
     func baseTextModifier() -> some View {

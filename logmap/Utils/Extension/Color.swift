@@ -14,12 +14,12 @@ extension Color {
     static let Gray = Color("Gray")
     static let BackgroundGray = Color("BackgroundGray")
     static let Black = Color("Black")
-    
-    static let Green = Color("Green")
-    static let Pink = Color("Pink")
     static let Purple = Color("Purple")
-    static let Orange = Color("Orange")
-    static let Yellow = Color("Yellow")
-    
+
     static let PaleBlue = Color("PaleBlue")
+    static let PaleGreen = Color("PaleGreen")
+    static let PalePink = Color("PalePink")
+    static let PaleOrange = Color("PaleOrange")
+    static let PaleYellow = Color("PaleYellow")
+    static let PalePurple = Color("PalePurple")
 }
