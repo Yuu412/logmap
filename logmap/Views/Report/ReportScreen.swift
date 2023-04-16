@@ -7,6 +7,25 @@
 
 import SwiftUI
 
+struct ReportScreen: View{
+    @State var progressValue: CGFloat = 0.3
+    
+    var body: some View{
+        ScrollView {
+            VStack {
+                Text("レポート")
+                
+                CircularProgressBar(progressValue: $progressValue)
+                    .frame(width: 150.0, height: 150.0)
+                    .padding(32.0)
+                    
+                Spacer()
+            }
+        }
+        .padding(.top, 10)
+    }
+}
+
 // プログレスバーのビュー
 struct CircularProgressBar: View {
     @Binding var progressValue: CGFloat
@@ -50,28 +69,8 @@ struct CircularProgressBar: View {
     }
 }
 
-struct ReportScreen: View{
-    @State var progressValue: CGFloat = 0.3
-    
-    var body: some View{
-        ScrollView {
-            VStack {
-                Text("レポート")
-                
-                CircularProgressBar(progressValue: $progressValue)
-                    .frame(width: 150.0, height: 150.0)
-                    .padding(32.0)
-                    
-                Spacer()
-            }
-        }
-        .padding(.top, 10)
-    }
-}
-
 struct ReportScreen_Previews: PreviewProvider {
     static var previews: some View {
         ReportScreen()
     }
 }
-

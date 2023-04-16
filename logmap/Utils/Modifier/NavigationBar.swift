@@ -16,25 +16,6 @@ struct NavigationBarModifier: ViewModifier {
     @EnvironmentObject var navigationVM: NavigationViewModel
     
     @State private var showingAlert = false
-    /*
-    init(navigationBarTitle: String, navigationBarLeading: Bool, navigationBarTrailing: Bool) {
-        self.navigationBarTitle = navigationBarTitle
-        self.navigationBarLeading = navigationBarLeading
-        self.navigationBarTrailing = navigationBarTrailing
-        
-        let coloredAppearance = UINavigationBarAppearance()
-        coloredAppearance.configureWithTransparentBackground()
-        coloredAppearance.backgroundColor = .clear
-        coloredAppearance.titleTextAttributes = [.foregroundColor: UIColor.clear]
-        coloredAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.clear]
-        
-        // [2]
-        UINavigationBar.appearance().standardAppearance = coloredAppearance
-        UINavigationBar.appearance().compactAppearance = coloredAppearance
-        UINavigationBar.appearance().scrollEdgeAppearance = coloredAppearance
-        UINavigationBar.appearance().tintColor = .white
-    }
-     */
     
     func body(content: Content) -> some View {
         content

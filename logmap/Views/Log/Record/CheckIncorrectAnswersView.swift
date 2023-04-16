@@ -135,12 +135,12 @@ struct SelectIncorrectReasonSection: View {
     
     // 不正解理由のテストデータ
     var incorrectReasons: [IncorrectReason] = [
-        .init(name: "計算ミス", color: Color.Green, imageName: "incorrectReason"),
-        .init(name: "理解不足", color: Color.Orange, imageName: "incorrectReason"),
-        .init(name: "勘違い", color: Color.Purple, imageName: "incorrectReason"),
-        .init(name: "テキスト", color: Color.Pink, imageName: "incorrectReason"),
+        .init(name: "計算ミス", color: Color.PaleGreen, imageName: "incorrectReason"),
+        .init(name: "理解不足", color: Color.PaleOrange, imageName: "incorrectReason"),
+        .init(name: "勘違い", color: Color.PalePurple, imageName: "incorrectReason"),
+        .init(name: "テキスト", color: Color.PalePink, imageName: "incorrectReason"),
         .init(name: "テキスト", color: Color.PaleBlue, imageName: "incorrectReason"),
-        .init(name: "原因不明", color: Color.Yellow, imageName: "incorrectReason"),
+        .init(name: "原因不明", color: Color.PaleYellow, imageName: "incorrectReason"),
         
     ]
     

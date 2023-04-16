@@ -34,6 +34,7 @@
 		CA95819729E5694700CE43A8 /* CardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA95819629E5694700CE43A8 /* CardModifier.swift */; };
 		CA95819929EA57B000CE43A8 /* EnterLogDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA95819829EA57B000CE43A8 /* EnterLogDetailsView.swift */; };
 		CA95819D29EA9B2700CE43A8 /* CommonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA95819C29EA9B2700CE43A8 /* CommonModifier.swift */; };
+		CA95819F29EAE8BA00CE43A8 /* InputCompletedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA95819E29EAE8BA00CE43A8 /* InputCompletedView.swift */; };
 		CA9E8C6229DC61FC000273BA /* NavigationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E8C6129DC61FC000273BA /* NavigationViewModel.swift */; };
 		CA9E8C6429DD90BD000273BA /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA9E8C6329DD90BD000273BA /* Log.swift */; };
 		CAE36D1629CFDDE700EA151F /* LogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE36D1529CFDDE700EA151F /* LogViewModel.swift */; };
@@ -94,6 +95,7 @@
 		CA95819629E5694700CE43A8 /* CardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModifier.swift; sourceTree = "<group>"; };
 		CA95819829EA57B000CE43A8 /* EnterLogDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterLogDetailsView.swift; sourceTree = "<group>"; };
 		CA95819C29EA9B2700CE43A8 /* CommonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonModifier.swift; sourceTree = "<group>"; };
+		CA95819E29EAE8BA00CE43A8 /* InputCompletedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputCompletedView.swift; sourceTree = "<group>"; };
 		CA9E8C6129DC61FC000273BA /* NavigationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewModel.swift; sourceTree = "<group>"; };
 		CA9E8C6329DD90BD000273BA /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		CAE36D1529CFDDE700EA151F /* LogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogViewModel.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				CAF5B95729E2BE350062591C /* CameraView.swift */,
 				CA95819429E2C23C00CE43A8 /* CheckIncorrectAnswersView.swift */,
 				CA95819829EA57B000CE43A8 /* EnterLogDetailsView.swift */,
+				CA95819E29EAE8BA00CE43A8 /* InputCompletedView.swift */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -494,6 +497,7 @@
 				CA53A44B29D8238300259081 /* NavigationBar.swift in Sources */,
 				CA95819529E2C23C00CE43A8 /* CheckIncorrectAnswersView.swift in Sources */,
 				CAF5B94B29E280520062591C /* EnterLogImageView.swift in Sources */,
+				CA95819F29EAE8BA00CE43A8 /* InputCompletedView.swift in Sources */,
 				CA77D6C329CEEBA200F09748 /* LogScreen.swift in Sources */,
 				CA9E8C6429DD90BD000273BA /* Log.swift in Sources */,
 				CAE36D1D29CFEBF800EA151F /* Textbook.swift in Sources */,
