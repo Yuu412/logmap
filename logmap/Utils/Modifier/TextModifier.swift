@@ -82,6 +82,18 @@ struct BaseText: ViewModifier {
     }
 }
 
+struct SmallText: ViewModifier {
+    let uiFont = UIFont(name: "HiraginoSans-W3", size: 12)!
+    func body(content: Content) -> some View {
+        HStack{
+            content
+                .font(.custom("HiraginoSans-W3", size: 12))
+                .lineSpacing(10)
+                .baselineOffset(-uiFont.descender)
+        }
+    }
+}
+
 struct PageHeadline: ViewModifier {
     let color: Color
     let uiFont = UIFont(name: "HiraginoSans-W6", size: 24)!
@@ -146,6 +158,10 @@ extension View {
     
     func baseTextModifier() -> some View {
         modifier(BaseText())
+    }
+    
+    func smallTextModifier() -> some View {
+        modifier(SmallText())
     }
     
     func timerHeadlineModifier(color: Color) -> some View {
