@@ -10,8 +10,9 @@ import SwiftUI
 struct LogScreen: View{
     var body: some View{
         ZStack {
+            Color.BackgroundGray.ignoresSafeArea()
             VStack{
-                PageTitleSection()
+                LogPageTitleSection()
                 TextbooksSection()
             }
             AddTextbookButton()
@@ -21,7 +22,7 @@ struct LogScreen: View{
     }
 }
 
-struct PageTitleSection: View{
+struct LogPageTitleSection: View{
     var body: some View{
         VStack(alignment: .leading) {
             HStack(){

@@ -58,6 +58,19 @@ struct SectionTitleWithMark: ViewModifier {
     }
 }
 
+struct SectionTitlePlain: ViewModifier {
+    let uiFont = UIFont(name: "HiraginoSans-W3", size: 16)!
+    func body(content: Content) -> some View {
+            content
+                .font(.custom("HiraginoSans-W6", size: 16))
+                .foregroundColor(Color.Gray)
+                .lineSpacing(14)
+                .kerning(1)
+                .padding(.top, 3)
+                .baselineOffset(-uiFont.descender)
+    }
+}
+
 struct SubheadlineText: ViewModifier {
     let uiFont = UIFont(name: "HiraginoSans-W3", size: 18)!
     func body(content: Content) -> some View {
@@ -138,6 +151,26 @@ struct TimerSmallText: ViewModifier {
     }
 }
 
+// ログの時間表示部
+struct TimeText: ViewModifier {
+    let uiFont = UIFont(name: "HiraginoSans-W3", size: 12)!
+    
+    func body(content: Content) -> some View {
+        HStack{
+            content
+                .padding(.vertical, 5)
+                .padding(.horizontal, 10)
+                .font(.custom("HiraginoSans-W3", size: 12))
+                .baselineOffset(-uiFont.descender)
+                .foregroundColor(Color.Blue)
+                .background(Color.PaleBlue)
+                .cornerRadius(99)
+                
+        }
+    }
+}
+
+
 extension View {
     
     func sectionTitleModifier() -> some View {
@@ -146,6 +179,10 @@ extension View {
     
     func sectionTitleWithMarkModifier() -> some View {
         modifier(SectionTitleWithMark())
+    }
+    
+    func sectionTitlePlainModifier() -> some View {
+        modifier(SectionTitlePlain())
     }
     
     func pageTitleModifier() -> some View {
@@ -174,6 +211,10 @@ extension View {
     
     func timerSmallTextModifier(color: Color) -> some View {
         modifier(TimerSmallText(color: color))
+    }
+    
+    func timeTextModifier() -> some View {
+        modifier(TimeText())
     }
 }
 

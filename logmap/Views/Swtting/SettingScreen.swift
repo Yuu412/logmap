@@ -8,11 +8,11 @@
 import SwiftUI
 import FirebaseAuth
 
-struct MypageScreen: View{
+struct SettingScreen: View{
+    @StateObject var navigationVM = NavigationViewModel()
 
     @AppStorage("log_status") var log_Status = false
     var body: some View{
-        
         ScrollView {
             VStack {
                 Button(action: {
