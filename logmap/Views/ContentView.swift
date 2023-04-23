@@ -13,8 +13,6 @@ struct TabItem: Hashable {
     let label: String
 }
 
-let tabs = ["doc.text.magnifyingglass", "chart.bar.fill", "person.crop.circle"]
-
 let tabItems = [
     TabItem(imageName: "doc.text.magnifyingglass", label: "レポート"),
     TabItem(imageName: "chart.bar.fill", label: "ログ"),
@@ -46,12 +44,21 @@ struct ContentView: View {
                     TabView(selection: $selectedTab) {
                         ReportScreen()
                             .tag(tabItems[0])
+                            .onAppear(){
+                                navigationVM.safeAreaBackground = Color.BackgroundGray
+                            }
                         
                         LogScreen()
                             .tag(tabItems[1])
+                            .onAppear(){
+                                navigationVM.safeAreaBackground = Color.BackgroundGray
+                            }
                         
-                        MypageScreen()
+                        SettingScreen()
                             .tag(tabItems[2])
+                            .onAppear(){
+                                navigationVM.safeAreaBackground = Color.white
+                            }
                     }
                     .environmentObject(contentVM)
                     .navigationDestination(for: NavView.self) { path in
@@ -64,10 +71,16 @@ struct ContentView: View {
                     
                     CustomNavigation(selectedTab: self.$selectedTab)
                 }
-                .padding()
+                .padding(.vertical)
                 .ignoresSafeArea(.all, edges: .bottom)
+                .background(navigationVM.safeAreaBackground.ignoresSafeArea())
             }
             .environmentObject(navigationVM)
+            .onAppear(){
+                // safeAreaの背景色を変更
+                navigationVM.safeAreaBackground = Color.BackgroundGray
+            }
+            
         }
         else {
             // サインイン用ページ
@@ -103,14 +116,18 @@ struct CustomNavigation: View{
                         }
                     })
                     
-                    if tabItem.imageName != tabs.last{Spacer(minLength: 0)}
+                    // TabItem間のSpacer
+                    if tabItem != tabItems.last{
+                        Spacer()
+                        
+                    }
                 }
                 
             }
-            .padding(.horizontal, FrameSize().width * 0.125)
+            .padding(.horizontal, FrameSize().width * 0.12)
             .padding(.vertical, 10)
             .background(Color.white)
-            .cornerRadius(20)
+            .cornerRadius(99)
             .shadow(
                 color: .black.opacity(0.25),
                 radius: 5,
@@ -118,7 +135,7 @@ struct CustomNavigation: View{
                 y: 5
             )
         }
-        .padding(.horizontal, 10)
+        .padding(.horizontal, 25)
         .padding(.vertical, 10)
     }
 }

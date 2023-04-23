@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 enum NavView {
     // case
@@ -16,6 +17,8 @@ enum NavView {
 
 class NavigationViewModel: ObservableObject {
     @Published var navigationPath = [NavView]()
+    
+    @Published var safeAreaBackground: Color = Color.white
     
     func popToRoot() {
             navigationPath = []

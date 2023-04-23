@@ -15,6 +15,7 @@ struct logmapApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(\.locale, Locale(identifier: "ja_JP")) 
         }
     }
 }

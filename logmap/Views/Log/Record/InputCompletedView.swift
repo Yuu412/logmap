@@ -60,7 +60,10 @@ struct AmountGoalSection: View {
                 .padding(.horizontal)
             
             HStack{
-                AmountStudyProgressCircular(progressValue: $progressValue)
+                AmountStudyProgressCircular(
+                    progressValue: $progressValue,
+                    unit: "問"
+                )
                 
                 Spacer()
                 
@@ -93,56 +96,7 @@ struct AmountGoalSection: View {
     }
 }
 
-// 勉強量の目標達成までの円グラフ
-struct AmountStudyProgressCircular: View {
-    @Binding var progressValue: CGFloat
-    @State var isAnimation = false
-    
-    @State var transitionValue = 0.0
-    
-    let themeColor: Color = Color.Blue
-    
-    var body: some View {
-        ZStack {
-            // 背景の円
-            Circle()
-                .stroke(lineWidth: 14.0)
-                .opacity(0.15)
-                .foregroundColor(themeColor)
-            
-            // 進捗を示す円
-            Circle()
-            // 始点/終点を指定して円を描画する
-            // 始点/終点には0.0-1.0の範囲に正規化した値を指定する
-                .trim(from: 0.0, to: min(transitionValue, 1.0))
-            // 線の端の形状などを指定
-                .stroke(style: StrokeStyle(lineWidth: 18.0, lineCap: .round, lineJoin: .round))
-                .foregroundColor(themeColor)
-            // デフォルトの原点は時計の12時の位置ではないので回転させる
-                .rotationEffect(Angle(degrees: 270))
-                .onAppear(){
-                    withAnimation(.easeInOut(duration: 1.0)) {
-                        transitionValue = self.progressValue
-                    }
-                }
-                .onDisappear(){
-                    transitionValue = 0.0
-                }
- 
-            // 進捗率のテキスト
-            HStack (alignment: .bottom){
-                Text(String(format: "%.0f%", min(progressValue, 1.0) * 100.0))
-                    .font(.custom("HiraginoSans-W3", size: 40))
-                Text("問")
-                    .font(.callout)
-            }
-            .foregroundColor(themeColor)
-            .fontWeight(.medium)
-        }
-        .frame(width: FrameSize().width * 0.3)
-        .padding(25)
-    }
-}
+
 
 // 勉強量の目標達成までの表示カード部分
 struct TimeGoalSection: View {
